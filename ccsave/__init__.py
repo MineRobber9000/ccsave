@@ -1,4 +1,5 @@
-import enum,base64
+import base64
+import ccsave.customenum as enum
 
 def number(s):
 	try:
