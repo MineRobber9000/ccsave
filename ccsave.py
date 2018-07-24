@@ -12,6 +12,23 @@ def number(s):
 class Preferences(enum.Enum):
 	def __init__(self):
 		super(Preferences, self).__init__()
+		self.define("pref_0")
+		self.define("pref_1")
+		self.define("pref_2")
+		self.define("pref_3")
+		self.define("pref_4")
+		self.define("fancy_graphics")
+		self.define("pref_6")
+		self.define("pref_7")
+		self.define("pref_8")
+		self.define("pref_9")
+		self.define("pref_10")
+		self.define("pref_11")
+		self.define("pref_12")
+		self.define("css_filters")
+		self.define("pref_14")
+		self.define("pref_15")
+		self.define("pref_16")
 
 class Upgrades(enum.Enum):
 	def __init__(self):
@@ -203,6 +220,9 @@ class Achievements(enum.Enum):
 		self.define('fanaticism')
 
 class Game:
+#                             00000000001111111
+#                             01234567890123456
+	ALL_ON_PREFERENCES = "11111111001111110"
 	def __init__(self,save="",savefile=""):
 		if savefile and not save:
 			with open(savefile) as f:
@@ -222,3 +242,4 @@ class Game:
 		self.upgrades = self.data.pop(0)
 		self.achievements = [x=="1" for x in self.data.pop(0)]
 		del self.data
+		self.preferences = [self.preferences[x]==self.ALL_ON_PREFERENCES[x] for x in range(len(self.preferences))]
