@@ -12,8 +12,8 @@ def number(s):
 class Preferences(enum.Enum):
 	def __init__(self):
 		super(Preferences, self).__init__()
-		self.define("pref_0")
-		self.define("pref_1")
+		self.define("particles")
+		self.define("popup_numbers")
 		self.define("pref_2")
 		self.define("pref_3")
 		self.define("pref_4")
@@ -226,6 +226,7 @@ class Game:
 #                             00000000001111111
 #                             01234567890123456
 	ALL_ON_PREFERENCES = "11111111001111110"
+#                            "01111111001111110"
 	def __init__(self,save="",savefile=""):
 		if savefile and not save:
 			with open(savefile) as f:
