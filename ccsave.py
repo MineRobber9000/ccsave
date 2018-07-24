@@ -29,10 +29,12 @@ class Preferences(enum.Enum):
 		self.define("pref_14")
 		self.define("pref_15")
 		self.define("pref_16")
+preferences = Preferences()
 
 class Upgrades(enum.Enum):
 	def __init__(self):
 		super(Upgrades,self).__init__()
+upgrades = Upgrades()
 
 class Achievements(enum.Enum):
 	def __init__(self):
@@ -218,6 +220,7 @@ class Achievements(enum.Enum):
 		self.define('new_age_cult')
 		self.define('organised_religion')
 		self.define('fanaticism')
+achievements = Achievements()
 
 class Game:
 #                             00000000001111111
