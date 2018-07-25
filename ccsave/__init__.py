@@ -1,6 +1,7 @@
 import base64
 from ccsave.enums import Preferences, Upgrades, Achievements
 from urllib.parse import quote_plus as encode
+from urllib.parse import unquote_plus as decode
 
 def number(s):
 	try:
@@ -24,9 +25,10 @@ class Game:
 	def __init__(self,save="",savefile=""):
 		if savefile and not save:
 			with open(savefile) as f:
-				save = f.read().strip()
+				save = decode(f.read().strip())
 		elif not (savefile or save):
 			raise Exception("Either pass in a save or a save file!")
+		save = decode(save).split("!END!")[0]
 		self.data = base64.b64decode(save).decode("utf-8").split("|")
 		self.version = self.data.pop(0)
 		self.reserved = self.data.pop(0)
