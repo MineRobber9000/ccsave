@@ -61,4 +61,4 @@ class Game:
 		ret += self.buffs
 		if level==2:
 			return ret
-		ret = encode(base64.b64encode(ret.encode("utf-8"))+"!END!")
+		ret = encode(base64.b64encode(ret.encode("utf-8"))+b"!END!")
