@@ -5,5 +5,5 @@ g = ccsave.Game("Mi4wMTA2fHwxNTMyNDEzMTkwNzg4OzE1MzI0MTMxOTA3ODg7MTUzMjQyNDMxODA
 exclude_list = "ALL_ON_PREFERENCES version reserved legacy_start session_start save_tstamp name seed achievements".split()
 
 for k in dir(g):
-	if not (k.startswith("_") or k in exclude_list):
+	if not (k.startswith("_") or k in exclude_list or type(getattr(g,k))==type(ccsave.preferences.define)):
 		print("g.{!s} = {!r}".format(k,getattr(g,k)))
