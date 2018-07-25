@@ -54,7 +54,7 @@ class Game:
 		ret = ""
 		ret += self.version+"|" # Game version
 		ret += "|" # "//just in case we need some more stuff here"
-		ret += ";".join(str(x*1000) for x in (self.session_start, self.legacy_start, self.save_tstamp))+";"+";".join((self.name, self.seed))+"|"
+		ret += ";".join(str(int(round(x*1000))) for x in (self.session_start, self.legacy_start, self.save_tstamp))+";"+";".join((self.name, self.seed))+"|"
 		ret += "".join(self.ALL_ON_PREFERENCES[x] if self.preferences[x] else toggle(self.ALL_ON_PREFERENCES[x]) for x in range(len(self.preferences)))+"|"
 		ret += self.cookie_data+"|"
 		ret += self.building_data+"|"
@@ -64,3 +64,4 @@ class Game:
 		if level==2:
 			return ret
 		ret = encode(base64.b64encode(ret.encode("utf-8"))+b"!END!")
+		return ret

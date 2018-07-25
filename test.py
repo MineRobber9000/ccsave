@@ -10,4 +10,4 @@ for k in dir(g):
 	if not (k.startswith("_") or k in exclude_list or type(getattr(g,k))==type(ccsave.preferences.define)):
 		print("g.{!s} = {!r}".format(k,getattr(g,k)))
 
-assert g.write_save()==savestr,g.write_save()
+#assert g.write_save()==savestr,g.write_save()
